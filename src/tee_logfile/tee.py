@@ -39,3 +39,17 @@ class Tee:
 
         sys.stdout = sys.__stdout__
         sys.stderr = sys.__stderr__
+
+    class _ContextManager:
+        def __init__(self, logfile_path):
+            self.logfile_path = logfile_path
+
+        def __enter__(self):
+            Tee.start(self.logfile_path)
+
+        def __exit__(self, exc_type, exc_value, traceback):
+            Tee.end()
+
+    @classmethod
+    def context(cls, logfile_path):
+        return cls._ContextManager(logfile_path)
