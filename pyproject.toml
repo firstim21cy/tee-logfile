@@ -1,6 +1,6 @@
 [project]
 name = "tee-logfile"
-version = "0.3.4"
+version = "0.3.5"
 description = "A simple utility to tee stdout and stderr to a logfile."
 authors = [
     { name = "cy" }
