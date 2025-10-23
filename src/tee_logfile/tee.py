@@ -1,3 +1,4 @@
+import os
 import re
 import sys
 
@@ -28,6 +29,8 @@ class Tee:
 
     @staticmethod
     def start(logfile_path):
+        os.makedirs(os.path.dirname(logfile_path), exist_ok=True)
+
         logfile = open(logfile_path, 'w')
 
         sys.stdout = Tee(sys.stdout, logfile)
