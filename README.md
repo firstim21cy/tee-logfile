@@ -34,4 +34,5 @@ with Tee.context('/path/to/output.log'):
 ```bash
 poetry version minor
 tox -e release
+pip install ~/projects/sandbox/tee-logfile
 ```
