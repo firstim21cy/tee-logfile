@@ -6,7 +6,7 @@ authors = [
     { name = "cy" }
 ]
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.9"
 urls = { "Repository" = "https://github.com/firstim21cy/tee-logfile"}
 [tool.poetry]
 packages = [{include = "tee_logfile", from = "src"}]
