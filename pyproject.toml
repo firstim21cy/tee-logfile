@@ -14,20 +14,3 @@ packages = [{include = "tee_logfile", from = "src"}]
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
-
-[testenv:release]
-skip_install = true
-allowlist_externals = poetry, bash
-description = Bump version and publish package
-commands_pre =
-    bash -c 'git diff --quiet || { echo "❌ Git working directory is not clean. Commit before release."; exit 1; }'
-commands =
-    bash -c 'rm -rf dist'
-    poetry version patch
-    poetry publish --build
-    bash -c 'VERSION=$(poetry version -s) && \
-             git add pyproject.toml && \
-             git commit -m "Release version $VERSION" && \
-             git push'
-commands_post =
-    python -c "print('✅ Package uploaded! at: https://pypi.org/project/treeplots')"
