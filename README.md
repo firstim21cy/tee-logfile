@@ -23,6 +23,15 @@ pip install tee-logfile
 ```python
 from tee_logfile import Tee
 
-with Tee.context('output.log'):
+with Tee.context('/path/to/output.log'):
     my_cli_code_to_run()
+```
+
+## Development
+
+### release
+
+```bash
+poetry version minor
+tox -e release
 ```
