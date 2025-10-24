@@ -2,3 +2,5 @@
 dist/
 temp/
 .tox/
+__pycache__
+.DS_Store
